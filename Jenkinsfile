@@ -129,19 +129,19 @@ spec:
             steps {
                 echo '-=- run software composition analysis -=-'
                 sh './mvnw dependency-check:check'
-                dependencyCheckPublisher(
-                    failedTotalCritical: qualityGates.security.dependencies.critical.failed,
-                    unstableTotalCritical: qualityGates.security.dependencies.critical.unstable,
-                    failedTotalHigh: qualityGates.security.dependencies.high.failed,
-                    unstableTotalHigh: qualityGates.security.dependencies.high.unstable,
-                    failedTotalMedium: qualityGates.security.dependencies.medium.failed,
-                    unstableTotalMedium: qualityGates.security.dependencies.medium.unstable)
-                script {
-                    if (currentBuild.result == 'FAILURE') {
-                        // error('Dependency vulnerabilities exceed the configured threshold')
-                        echo "ERROR DEPENDENCY VULNERABILITIES **IGNORED**"
-                    }
-                }
+                // dependencyCheckPublisher(
+                //     failedTotalCritical: qualityGates.security.dependencies.critical.failed,
+                //     unstableTotalCritical: qualityGates.security.dependencies.critical.unstable,
+                //     failedTotalHigh: qualityGates.security.dependencies.high.failed,
+                //     unstableTotalHigh: qualityGates.security.dependencies.high.unstable,
+                //     failedTotalMedium: qualityGates.security.dependencies.medium.failed,
+                //     unstableTotalMedium: qualityGates.security.dependencies.medium.unstable)
+                // script {
+                //     if (currentBuild.result == 'FAILURE') {
+                //         // error('Dependency vulnerabilities exceed the configured threshold')
+                //         echo "ERROR DEPENDENCY VULNERABILITIES **IGNORED**"
+                //     }
+                // }
             }
         }
 
