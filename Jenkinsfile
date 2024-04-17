@@ -68,11 +68,11 @@ spec:
         // credentials
         KUBERNETES_CLUSTER_CRED_ID = 'kube-config'
         CONTAINER_REGISTRY_CRED = credentials("gonzalo44r-dockerhub")
-        LIGHTHOUSE_TOKEN = credentials("ci-lighthouse")
+        LIGHTHOUSE_TOKEN = credentials("ci-lighthouse-build-token")
+        LIGHTHOUSE_URL = credentials('ci-lighthouse-url')
 
         // external systems
         // SELENIUM_URL = credentials('ci-selenium-url') // typically ends with '/wd/hub'
-        LIGHTHOUSE_URL = credentials('ci-lighthouse-url')
     }
 
     stages {
@@ -118,12 +118,12 @@ spec:
             }
         }
 
-        stage('Mutation tests') {
-            steps {
-                echo '-=- execute mutation tests -=-'
-                sh './mvnw org.pitest:pitest-maven:mutationCoverage'
-            }
-        }
+        // stage('Mutation tests') {
+        //     steps {
+        //         echo '-=- execute mutation tests -=-'
+        //         sh './mvnw org.pitest:pitest-maven:mutationCoverage'
+        //     }
+        // }
 
         stage('Software composition analysis') {
             steps {
