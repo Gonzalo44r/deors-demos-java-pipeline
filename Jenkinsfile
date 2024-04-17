@@ -68,7 +68,7 @@ spec:
         // credentials
         KUBERNETES_CLUSTER_CRED_ID = 'kube-config'
         CONTAINER_REGISTRY_CRED = credentials("gonzalo44r-dockerhub")
-        LIGHTHOUSE_TOKEN = credentials("ci-lighthouse-token-$APP_NAME")
+        LIGHTHOUSE_TOKEN = credentials("ci-lighthouse")
 
         // external systems
         SELENIUM_URL = credentials('ci-selenium-url') // typically ends with '/wd/hub'
