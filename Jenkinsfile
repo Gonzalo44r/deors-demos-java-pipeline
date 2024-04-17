@@ -214,9 +214,9 @@ spec:
                       git config --global --add safe.directory $WORKSPACE
                       export LHCI_BUILD_CONTEXT__CURRENT_BRANCH=$GIT_BRANCH
                       lhci collect --collect.settings.chromeFlags='--no-sandbox' --url ${EPHTEST_BASE_URL}hello
-                      #lhci assert --preset=lighthouse:recommended --includePassedAssertions
                       lhci upload --token $LIGHTHOUSE_TOKEN --serverBaseUrl $LIGHTHOUSE_URL --ignoreDuplicateBuildFailure
-                    """
+                    """ //ANTES UPLOAD: lhci assert --preset=lighthouse:recommended --includePassedAssertions
+                    echo "$LIGHTHOUSE_URL"
                 }
             }
         }
