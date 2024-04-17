@@ -138,8 +138,7 @@ spec:
                 //     unstableTotalMedium: qualityGates.security.dependencies.medium.unstable)
                 // script {
                 //     if (currentBuild.result == 'FAILURE') {
-                //         // error('Dependency vulnerabilities exceed the configured threshold')
-                //         echo "ERROR DEPENDENCY VULNERABILITIES **IGNORED**"
+                //         error('Dependency vulnerabilities exceed the configured threshold')
                 //     }
                 // }
             }
@@ -195,7 +194,7 @@ spec:
         stage('Performance tests') {
             steps {
                 echo '-=- execute performance tests -=-'
-                sh "curl --retry 10 --retry-connrefused --connect-timeout 5 --max-time 5 ${EPHTEST_BASE_URL}actuator/health"
+                sh "curl --retry 50 --retry-connrefused --connect-timeout 5 --max-time 5 ${EPHTEST_BASE_URL}actuator/health"
                 sh "./mvnw jmeter:configure@configuration jmeter:jmeter jmeter:results -Djmeter.target.host=$EPHTEST_CONTAINER_NAME -Djmeter.target.port=$APP_LISTENING_PORT -Djmeter.target.root=$APP_CONTEXT_ROOT"
                 // perfReport(
                 //     sourceDataFiles: 'target/jmeter/results/*.csv',
