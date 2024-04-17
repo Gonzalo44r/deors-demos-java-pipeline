@@ -56,7 +56,7 @@ spec:
         APP_LISTENING_PORT = '8080'
         APP_JACOCO_PORT = '6300'
         CONTAINER_REGISTRY_URL = 'docker.io'
-        IMAGE_ORG = 'deors'
+        IMAGE_ORG = 'gonzalo44r'
         IMAGE_NAME = "$IMAGE_ORG/$APP_NAME"
         IMAGE_SNAPSHOT = "$IMAGE_NAME:$APP_VERSION-snapshot-$BUILD_NUMBER" // tag for snapshot version
         IMAGE_SNAPSHOT_LATEST = "$IMAGE_NAME:latest-snapshot" // tag for latest snapshot version
@@ -66,8 +66,8 @@ spec:
         EPHTEST_BASE_URL = "http://$EPHTEST_CONTAINER_NAME:$APP_LISTENING_PORT".concat("/$APP_CONTEXT_ROOT".replace('//', '/'))
 
         // credentials
-        KUBERNETES_CLUSTER_CRED_ID = 'k3s-lima-vm-kubeconfig'
-        CONTAINER_REGISTRY_CRED = credentials("docker-hub-$IMAGE_ORG")
+        KUBERNETES_CLUSTER_CRED_ID = 'kube-config'
+        CONTAINER_REGISTRY_CRED = credentials("gonzalo44r-dockerhub")
         LIGHTHOUSE_TOKEN = credentials("ci-lighthouse-token-$APP_NAME")
 
         // external systems
